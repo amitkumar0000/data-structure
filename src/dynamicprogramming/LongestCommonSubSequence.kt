@@ -6,7 +6,7 @@ class LongestCommonSubSequence {
     }
 
     /**
-     * Using recursion
+     *  recursion
      */
     private fun lcsRecursion(t1: String, t2: String, n1: Int, n2: Int): Int{
         if(n1 == 0 || n2 == 0)
