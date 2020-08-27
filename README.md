@@ -39,8 +39,8 @@ Graph
 4. Topological sort
 5. Minimum Spanning Tree
 6. Prims Algorithms
-7. Krushkal Algorithms
-8. Shortest Path(DIjkstra Algorithms)
+7. Krushkal's Algorithms
+8. Shortest Path(Dijkstra Algorithms)
 9. Circle in Graph
 10. Disjoint Set
 11. Bipartite 
@@ -54,3 +54,5 @@ Dynamic Programming
 3. LIS (longest increasing/non-decreasing subsequence)
 4. Coin change problem (unbounded knapsack)
 5. kadane's Algorithms
+6. Minimum Insertion to make String Palindrome
+7. Longest Palindrome subsequence
