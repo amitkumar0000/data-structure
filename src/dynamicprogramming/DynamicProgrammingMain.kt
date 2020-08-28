@@ -2,9 +2,12 @@ package dynamicprogramming
 
 class DynamicProgrammingMain {
      enum class METHODNAME {
-         LCS, LIS, LCSubString
+         LCS,
+         LIS,
+         LCSubString,
+         LPS,
      }
-    val methodName = METHODNAME.LCSubString
+    val methodName = METHODNAME.LPS
 
     companion object{
         @JvmStatic
@@ -20,6 +23,8 @@ class DynamicProgrammingMain {
                     dp.longestIncreasingSubSequence()
                 METHODNAME.LCSubString ->
                     dp.longestCommonSubString()
+                METHODNAME.LPS ->
+                    dp.longestPalindromeSubString()
             }
         }
     }
@@ -45,5 +50,11 @@ class DynamicProgrammingMain {
         println("lCSubString:- ${lcs.lcsubstringRecursion("bacbabad","bacbad")}")
         println("lCSubString:- ${lcs.lcsubstringRecursion("babad","cbad")}")
         println("lCSubString:- ${lcs.lcsubstringRecursion("abcde","ababcde")}")
+    }
+
+    //LPS
+    private fun longestPalindromeSubString() {
+        val lps = LongestPalindromeSubString()
+        println("longest palindrome substring: ${lps.longestPalindrome("aacdefcaa")}")
     }
 }
