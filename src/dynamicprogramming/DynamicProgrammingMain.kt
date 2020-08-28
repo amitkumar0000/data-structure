@@ -2,9 +2,9 @@ package dynamicprogramming
 
 class DynamicProgrammingMain {
      enum class METHODNAME {
-         LCS, LIS
+         LCS, LIS, LCSubString
      }
-    val methodName = METHODNAME.LIS
+    val methodName = METHODNAME.LCSubString
 
     companion object{
         @JvmStatic
@@ -18,6 +18,8 @@ class DynamicProgrammingMain {
                     dp.longestCommonSubSequence()
                 METHODNAME.LIS ->
                     dp.longestIncreasingSubSequence()
+                METHODNAME.LCSubString ->
+                    dp.longestCommonSubString()
             }
         }
     }
@@ -35,5 +37,13 @@ class DynamicProgrammingMain {
         val lis = LongestIncreasingSubSequence()
         println("LIS:- ${lis.LIS(intArrayOf(2,5,1,8,3))}")
         println("LIS:- ${lis.LIS(intArrayOf(0))}")
+    }
+
+    //LCSubString
+    private fun longestCommonSubString() {
+        val lcs = LongestCommonSubString()
+        println("lCSubString:- ${lcs.lcsBottomUp("babad","cbad")}")
+        println("lCSubString:- ${lcs.lcsBottomUp("bacbabad","bacbad")}")
+        println("lCSubString:- ${lcs.lcsBottomUp("abcde","ababcde")}")
     }
 }

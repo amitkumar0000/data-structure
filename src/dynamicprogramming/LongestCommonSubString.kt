@@ -36,7 +36,7 @@ class LongestCommonSubString {
     }
 
     /**
-     * Memorization
+     * Memorization Top Down
      */
     private fun lcsTopDown(text1: String, text2: String, n1: Int, n2: Int, len: Int, dp:Array<IntArray>): Int {
         if (n1 >= text1.length || n2 == text2.length)

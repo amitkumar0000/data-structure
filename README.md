@@ -56,3 +56,5 @@ Dynamic Programming
 5. kadane's Algorithms
 6. Minimum Insertion to make String Palindrome
 7. Longest Palindrome subsequence
+8. Longest Common SubString
+9. Longest Palindrome SubString
