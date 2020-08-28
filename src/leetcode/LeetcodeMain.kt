@@ -2,9 +2,9 @@ package leetcode
 
 class LeetcodeMain {
     enum class METHODNAME {
-        LC128, LC436
+        LC6, LC128, LC436
     }
-    val methodName = METHODNAME.LC436
+    val methodName = METHODNAME.LC6
 
     companion object {
         @JvmStatic
@@ -13,11 +13,19 @@ class LeetcodeMain {
             val lc = LeetcodeMain()
 
             when(lc.methodName) {
+                METHODNAME.LC6 ->
+                    leetCode6()
                 LeetcodeMain.METHODNAME.LC128 ->
                     leetCode128()
                 LeetcodeMain.METHODNAME.LC436 ->
                     leetCode436()
             }
+        }
+
+        private fun leetCode6() {
+            val lc6 = LeetCode_6()
+            println("String after conversion: ${lc6.convert("PAYPALISHIRING", 3)}")
+            println("String after conversion: ${lc6.convert("AB", 1)}")
         }
 
         private fun leetCode128(){
