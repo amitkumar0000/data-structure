@@ -42,8 +42,8 @@ class DynamicProgrammingMain {
     //LCSubString
     private fun longestCommonSubString() {
         val lcs = LongestCommonSubString()
-        println("lCSubString:- ${lcs.lcsBottomUp("babad","cbad")}")
-        println("lCSubString:- ${lcs.lcsBottomUp("bacbabad","bacbad")}")
-        println("lCSubString:- ${lcs.lcsBottomUp("abcde","ababcde")}")
+        println("lCSubString:- ${lcs.lcsubstringRecursion("bacbabad","bacbad")}")
+        println("lCSubString:- ${lcs.lcsubstringRecursion("babad","cbad")}")
+        println("lCSubString:- ${lcs.lcsubstringRecursion("abcde","ababcde")}")
     }
 }
