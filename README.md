@@ -11,10 +11,10 @@ Data Structure:-
 7. Tree
 8. Graph
 9. Greedy ALgorithm
-9. Dynamic Programming
+10. Dynamic Programming
 10. Recursion
 11. Backtracking
-
+12. Prefix sum
 
 String
 ------
@@ -23,13 +23,14 @@ String
 
 Tree
 -----
-DFS
-1. Inorder
-2. PreOrder
-3. PostOrder
+1. DFS
+    1. Inorder
+    2. PreOrder
+    3. PostOrder
 
-BFS
-1. Level order traversal
+2. BFS
+    1. Level order traversal
+3. Sement Tree (Range query Tree) Prefix Sum
 
 Graph
 -----

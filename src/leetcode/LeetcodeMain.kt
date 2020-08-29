@@ -2,9 +2,12 @@ package leetcode
 
 class LeetcodeMain {
     enum class METHODNAME {
-        LC6, LC128, LC436
+        LC6,
+        LC128,
+        LC436,
+        LC1177,
     }
-    val methodName = METHODNAME.LC6
+    val methodName = METHODNAME.LC1177
 
     companion object {
         @JvmStatic
@@ -19,6 +22,8 @@ class LeetcodeMain {
                     leetCode128()
                 LeetcodeMain.METHODNAME.LC436 ->
                     leetCode436()
+                METHODNAME.LC1177 ->
+                    leetCode1177()
             }
         }
 
@@ -38,6 +43,18 @@ class LeetcodeMain {
             lc111.findRightInterval(arrayOf(intArrayOf(4,5), intArrayOf(2,3), intArrayOf(1,2))).forEach {
                 print("$it ")
             }
+        }
+
+        private fun leetCode1177() {
+            val lc1177 = LeetCode_1177()
+            lc1177.canMakePaliQueries("abbccc", arrayOf(intArrayOf(0, 5, 1))).forEach {
+                print("$it ")
+            }
+
+            lc1177.canMakePaliQueries("urgrihwbkjsrybm", arrayOf(intArrayOf(1,13,5))).forEach {
+                print("$it ")
+            }
+            println()
         }
     }
 }
