@@ -1,5 +1,8 @@
 package leetcode
 
+/***
+ * https://leetcode.com/problems/number-of-substrings-with-only-1s/
+ */
 class LeetCode_1513 {
     fun numSub(s: String): Int {
         var map = HashMap<Int,Int>()
