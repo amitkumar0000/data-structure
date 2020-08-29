@@ -30,7 +30,7 @@ Tree
 
 2. BFS
     1. Level order traversal
-3. Sement Tree (Range query Tree) Prefix Sum
+3. Segment Tree (Range query Tree) Prefix Sum
 
 Graph
 -----

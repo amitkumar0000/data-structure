@@ -6,8 +6,9 @@ class LeetcodeMain {
         LC128,
         LC436,
         LC1177,
+        LC1513
     }
-    val methodName = METHODNAME.LC1177
+    val methodName = METHODNAME.LC1513
 
     companion object {
         @JvmStatic
@@ -24,6 +25,8 @@ class LeetcodeMain {
                     leetCode436()
                 METHODNAME.LC1177 ->
                     leetCode1177()
+                METHODNAME.LC1513 ->
+                    leetCode1153()
             }
         }
 
@@ -55,6 +58,11 @@ class LeetcodeMain {
                 print("$it ")
             }
             println()
+        }
+
+        private fun leetCode1153() {
+            val lc1153 = LeetCode_1513()
+            println("No of 1s : ${lc1153.numSub("11111111")}")
         }
     }
 }
