@@ -32,13 +32,19 @@ class GraphMain {
     private fun articulationPoint() {
         val ap = ArticulationPoint()
 
-        val adjList = HashMap<Int, List<Int>>()
-        adjList[1] = listOf(2,4)
-        adjList[2] = listOf(1,3)
-        adjList[3] = listOf(2,4,5,6)
-        adjList[4] = listOf(1,3)
-        adjList[6] = listOf(3,5)
-        adjList[5] = listOf(3,6)
+        val adjList = HashMap<Int, ArrayList<Int>>()
+//        adjList[1] = arrayListOf(2,4)
+//        adjList[2] = arrayListOf(1,3)
+//        adjList[3] = arrayListOf(2,4,5,6)
+//        adjList[4] = arrayListOf(1,3)
+//        adjList[6] = arrayListOf(3,5)
+//        adjList[5] = arrayListOf(3,6)
+//
+        adjList[0] = arrayListOf(1,2)
+        adjList[1] = arrayListOf(0,2,3)
+        adjList[2] = arrayListOf(0,1)
+        adjList[3] = arrayListOf(1)
+
 
         ap.articulationPoint(adjList = adjList, root = 1)
     }
