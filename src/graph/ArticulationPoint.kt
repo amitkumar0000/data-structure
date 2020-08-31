@@ -8,6 +8,17 @@ import kotlin.collections.HashMap
  * It helps to find single point of failure in network grid.
  * Trojan Algorithm
  */
+
+/***
+ * Steps
+ * 1. Calculate discovery time of each node starting from root via DFS
+ * 2. Get the bridge by checking which edge goes missing after dfs traversal
+ *      and bridge is in direction from greater dfn vertex to smaller
+ * 3. Calculate Low value for each vertex using formula
+ *          low(u) = Math.min(dfn(u), min( low(child), dfn(backEdge))
+ * 4. if(dfn(u) <= low(v) u is parent
+ *         u is bridge    v is child
+ */
 class ArticulationPoint {
 
     private var dfn = 1
