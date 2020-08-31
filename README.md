@@ -46,7 +46,9 @@ Graph
 10. Disjoint Set
 11. Bipartite 
 12. Graph coloring
-13. Connected
+13. Connected 
+14. Tarjan Algorithms
+15. Articulation Point
 
 Dynamic Programming
 -------------------
@@ -54,7 +56,7 @@ Dynamic Programming
 2. LCS (longest common subsequence)
 3. LIS (longest increasing/non-decreasing subsequence)
 4. Coin change problem (unbounded knapsack)
-5. kadane's Algorithms
+5. kadane's Algorithms (Longest Contiguous sub-array with max sum)
 6. Minimum Insertion to make String Palindrome
 7. Longest Palindrome subsequence
 8. Longest Common SubString

@@ -1,14 +1,46 @@
 package graph
 
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+
 class GraphMain {
+
+    enum class METHODNAME {
+        DisjointSet,
+        ArticulationPoint
+    }
+    val methodName = METHODNAME.ArticulationPoint
     companion object{
         @JvmStatic
         fun main(args: Array<String>) {
             println("====== Graph =====")
             val gm = GraphMain()
 
-            gm.disjointSet()
+            when(gm.methodName) {
+                METHODNAME.DisjointSet ->
+                    gm.disjointSet()
+                METHODNAME.ArticulationPoint ->
+                    gm.articulationPoint()
+            }
         }
+    }
+
+    /**
+     * Articulation Point
+     */
+    private fun articulationPoint() {
+        val ap = ArticulationPoint()
+
+        val adjList = HashMap<Int, List<Int>>()
+        adjList[1] = listOf(2,4)
+        adjList[2] = listOf(1,3)
+        adjList[3] = listOf(2,4,5,6)
+        adjList[4] = listOf(1,3)
+        adjList[6] = listOf(3,5)
+        adjList[5] = listOf(3,6)
+
+        ap.articulationPoint(adjList = adjList, root = 1)
     }
 
     /**
