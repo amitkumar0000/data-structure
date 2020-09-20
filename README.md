@@ -95,3 +95,5 @@ Dynamic Programming
 7. Longest Palindrome subsequence
 8. Longest Common SubString
 9. Longest Palindrome SubString
+10. Jump game
+11. Climbing stairs
