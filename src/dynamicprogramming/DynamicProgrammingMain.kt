@@ -6,8 +6,10 @@ class DynamicProgrammingMain {
          LIS,
          LCSubString,
          LPS,
+         KADANE,
+         MAXCOIN
      }
-    val methodName = METHODNAME.LPS
+    val methodName = METHODNAME.MAXCOIN
 
     companion object{
         @JvmStatic
@@ -25,6 +27,10 @@ class DynamicProgrammingMain {
                     dp.longestCommonSubString()
                 METHODNAME.LPS ->
                     dp.longestPalindromeSubString()
+                METHODNAME.KADANE ->
+                    dp.kadaneAlgorithm()
+                METHODNAME.MAXCOIN ->
+                    dp.maxCoin()
             }
         }
     }
@@ -56,5 +62,28 @@ class DynamicProgrammingMain {
     private fun longestPalindromeSubString() {
         val lps = LongestPalindromeSubString()
         println("longest palindrome substring: ${lps.longestPalindrome("aacdefcaa")}")
+    }
+
+    //Longest Contiguous sum
+    private fun kadaneAlgorithm() {
+        val lcs = LongestContigousSum()
+        println("LCS:- ${lcs.largestContiguousSum(intArrayOf(-2, -3, 4, -1, -2, 1, 5, -3))}")
+        println("LCS:- ${lcs.largestContiguousSum(intArrayOf(-8, -4, -1, -3, -2, -1, -5, -3))}")
+
+        var lcsDp = LongestContigousSum()
+        println("LCS DP :- ${lcsDp.longContSum(intArrayOf(-2, -3, 4, -1, -2, 1, 5, -3))}")
+        println("LCS DP :- ${lcsDp.longContSum(intArrayOf(-8, -4, -1, -3, -2, -1, -5, -3))}")
+    }
+
+    //Maximum Coins in grid
+    private fun maxCoin() {
+        val mc = MaximumCoins()
+        println("max coins : ${mc.maxCoinsDP(arrayOf(
+                intArrayOf(0,3,1,1), 
+                intArrayOf(2,0,0,14),
+                intArrayOf(1,5,3,1)
+        ))}")
+
+        println("max coins : ${mc.maxCoinsDP(arrayOf(intArrayOf(1,1), intArrayOf(2,4)))}")
     }
 }
