@@ -18,22 +18,14 @@ class NextGreaterEle {
     }
 
     fun nextGreaterEle(nums: IntArray): IntArray {
+        if (nums.isEmpty()) return intArrayOf()
         var out = IntArray(nums.size) { -1 }
-
         var stack = Stack<Int>()
         for (i in nums.size - 1 downTo 0) {
-            if (stack.isEmpty()) {
-                out[i] = -1
-            } else {
-                while (stack.isNotEmpty() && stack.peek() <= nums[i])
-                    stack.pop()
-                out[i] = if(stack.isNotEmpty()){
-                     stack.peek()
-                }else{
-                     -1
-                }
-
-            }
+            while (stack.isNotEmpty() && stack.peek() <= nums[i])
+                stack.pop()
+            if (stack.isNotEmpty())
+                out[i] = stack.peek()
             stack.push(nums[i])
         }
         return out
