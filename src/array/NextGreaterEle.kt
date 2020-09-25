@@ -17,6 +17,7 @@ class NextGreaterEle {
         return out
     }
 
+    // Greater element to Right
     fun nextGreaterEle(nums: IntArray): IntArray {
         if (nums.isEmpty()) return intArrayOf()
         var out = IntArray(nums.size) { -1 }
@@ -26,6 +27,24 @@ class NextGreaterEle {
                 stack.pop()
             if (stack.isNotEmpty())
                 out[i] = stack.peek()
+            stack.push(nums[i])
+        }
+        return out
+    }
+
+    // Greater element to left
+    fun nextGreaterEleLeft(nums: IntArray): IntArray {
+        if(nums.isEmpty()) return intArrayOf()
+        var out = IntArray(nums.size) {-1}
+        var stack = Stack<Int>()
+
+        for(i in nums.indices) {
+            while(stack.isNotEmpty() && stack.peek() <= nums[i]) {
+                stack.pop()
+            }
+            if(stack.isNotEmpty()){
+                out[i] = stack.peek()
+            }
             stack.push(nums[i])
         }
         return out
