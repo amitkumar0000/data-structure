@@ -14,10 +14,12 @@ class ArrayMain {
         NextGreaterNumLeft,
         NextSmallerNum,
         NextSmallerNumLeft,
+        StockSpan,
+        MaxRectHistogram
     }
     companion object{
 
-        private val question = ArrayQuestion.NextSmallerNum
+        private val question = ArrayQuestion.MaxRectHistogram
         private val main = ArrayMain()
 
         @JvmStatic
@@ -41,9 +43,25 @@ class ArrayMain {
                     main.nextSmallerNum()
                 ArrayQuestion.NextSmallerNumLeft ->
                     main.nextSmallerNumLeft()
+                ArrayQuestion.StockSpan ->
+                    main.stockSpan()
+                ArrayQuestion.MaxRectHistogram ->
+                    main.maxRectHistogram()
             }
 
         }
+    }
+
+    private fun maxRectHistogram() {
+        val mrh = MaxRecAreaHistogram()
+        println("Max rect are:- ${mrh.maxAreaHistogram(intArrayOf(6,2,5,4,1,6))}")
+        println("Max rect are:- ${mrh.maxAreaHistogram(intArrayOf(6,2,5,4,5,1,6))}")
+    }
+
+    private fun stockSpan() {
+        var ss = StockSpan()
+        ss.stockSpanNLE(intArrayOf(100,80,60,70,60,75,85,110)).forEach { print("$it ") };println()
+        ss.stockSpanNLE(intArrayOf(100,80,60,60,60,75,85,110)).forEach { print("$it ") };println()
     }
 
     private fun nextSmallerNum() {
