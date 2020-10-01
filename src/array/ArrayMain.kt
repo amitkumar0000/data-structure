@@ -17,10 +17,11 @@ class ArrayMain {
         StockSpan,
         MaxRectHistogram,
         MaxRectBinaryMatrix,
+        TrapRainWater,
     }
     companion object{
 
-        private val question = ArrayQuestion.MaxRectBinaryMatrix
+        private val question = ArrayQuestion.TrapRainWater
         private val main = ArrayMain()
 
         @JvmStatic
@@ -50,9 +51,18 @@ class ArrayMain {
                     main.maxRectHistogram()
                 ArrayQuestion.MaxRectBinaryMatrix ->
                     main.maxAreaBinaryMatrix()
+                ArrayQuestion.TrapRainWater ->
+                    main.trapWater()
             }
 
         }
+    }
+
+    private fun trapWater() {
+        val rtw = RainTippingWater()
+        println("Trap water :- ${rtw.trap(intArrayOf(3,0,0,2,0,4))}")
+        println("Trap water :- ${rtw.trap(intArrayOf(0,1,0,2,1,0,1,3,0,1,2,1))}")
+        println("Trap water :- ${rtw.trap(intArrayOf(0,1,0,2,1,0,1,3,2,1,2,1))}")
     }
     private fun maxAreaBinaryMatrix() {
         val mrbm = MaxAreaRectangleBinaryMatrix()
