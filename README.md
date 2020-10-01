@@ -31,7 +31,7 @@ Sorting
 10. Counting Sort
 11. Bucket Sort
 
-12. How to sort 1 TB of data in 1 GB of RAM
+12. How to array.sort 1 TB of data in 1 GB of RAM
     Read 1GB of Data from 1TB file. Sort each file(Quick Sort) and say 1000 sorted file created.
     Now Using Min-Heap Merge all File into Single file.
 
@@ -71,7 +71,7 @@ Graph
 1. Adjacency List/Matrix
 2. BFS
 3. DFS
-4. Topological sort
+4. Topological array.sort
 5. Minimum Spanning Tree
 6. Prims Algorithms
 7. Krushkal's Algorithms
@@ -80,7 +80,7 @@ Graph
 10. Disjoint Set
 11. Bipartite 
 12. Graph coloring
-13. Connected 
+13. Connected components (Kosaraju Algorithm)
 14. Tarjan Algorithms
 15. Articulation Point
 

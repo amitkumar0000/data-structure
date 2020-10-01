@@ -15,11 +15,12 @@ class ArrayMain {
         NextSmallerNum,
         NextSmallerNumLeft,
         StockSpan,
-        MaxRectHistogram
+        MaxRectHistogram,
+        MaxRectBinaryMatrix,
     }
     companion object{
 
-        private val question = ArrayQuestion.MaxRectHistogram
+        private val question = ArrayQuestion.MaxRectBinaryMatrix
         private val main = ArrayMain()
 
         @JvmStatic
@@ -47,9 +48,27 @@ class ArrayMain {
                     main.stockSpan()
                 ArrayQuestion.MaxRectHistogram ->
                     main.maxRectHistogram()
+                ArrayQuestion.MaxRectBinaryMatrix ->
+                    main.maxAreaBinaryMatrix()
             }
 
         }
+    }
+    private fun maxAreaBinaryMatrix() {
+        val mrbm = MaxAreaRectangleBinaryMatrix()
+        println("Max Rect area Binary Matrix: ${mrbm.maxAreaBinaryMatrix(arrayOf(
+                charArrayOf('0','1'),
+                charArrayOf('1','0')
+        ))}")
+        println("Max Rect area Binary Matrix: ${mrbm.maxAreaBinaryMatrix(arrayOf(
+                charArrayOf('1','0','1','0','0'),
+                charArrayOf('1','0','1','1','1'),
+                charArrayOf('1','1','1','1','1'),
+                charArrayOf('1','0','1','1','1'),
+                charArrayOf('1','0','0','1','0')
+        ))}")
+
+
     }
 
     private fun maxRectHistogram() {
