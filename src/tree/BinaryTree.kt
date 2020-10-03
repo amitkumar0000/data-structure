@@ -47,7 +47,7 @@ class BinaryTree {
         throw IllegalStateException()
     }
 
-    internal fun printBinaryTree(){
+    internal fun BFS(){
         val queue = LinkedList<Tree>()
         if(root != null)
             queue.add(root!!)
@@ -66,6 +66,77 @@ class BinaryTree {
             }
         }
         println()
+    }
+
+    internal fun printLevelOrderLineByLine() {
+        val queue = LinkedList<Tree>()
+        var cc = 0
+        var fc = 0
+        if(root != null){
+            cc = 1
+            queue.add(root!!)
+        }
+
+        while(queue.isNotEmpty()) {
+            val node = queue.poll()
+            if(node.`val` != Int.MAX_VALUE) {
+                print("${node.`val`} ")
+            } else {
+                print("null ")
+            }
+            cc -= 1
+            node.left?.let{
+                queue.add(it)
+                fc += 1
+            }
+            node.right?.let {
+                queue.add(it)
+                fc += 1
+            }
+            if(cc == 0){
+                cc = fc
+                fc = 0
+                println()
+            }
+        }
+    }
+
+    internal fun DFS() {
+        println("=== Inorder ===")
+        inOrder(root)
+        println("\n=== Preoder ===")
+        preOrder(root)
+        println("\n=== PostOrder ===")
+        postOrder(root)
+    }
+
+    private fun inOrder(root: Tree?) {
+        if(root == null)
+            return
+        inOrder(root.left)
+        if(root.`val` != Int.MAX_VALUE)
+            print("${root.`val`} ")
+        inOrder(root.right)
+
+    }
+
+    private fun preOrder(root: Tree?) {
+        if(root == null)
+            return
+        if(root.`val` != Int.MAX_VALUE)
+            print("${root.`val`} ")
+        preOrder(root.left)
+        preOrder(root.right)
+
+    }
+
+    private fun postOrder(root: Tree?) {
+        if(root == null)
+            return
+        postOrder(root.left)
+        postOrder(root.right)
+        if(root.`val` != Int.MAX_VALUE)
+            print("${root.`val`} ")
     }
 }
 
