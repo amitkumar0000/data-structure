@@ -9,7 +9,7 @@ Data Structure:-
 5. Stack
 6. Queue
 7. LinkedList
-8. Tree
+8. tree
 9. Graph
 10. Greedy ALgorithm
 11. Dynamic Programming
@@ -26,7 +26,7 @@ Sorting
 5. Quick Sort
 6. Heap Sort
 7. Shell Sort
-8. Tree Sort
+8. tree Sort
 9. Radix Sort
 10. Counting Sort
 11. Bucket Sort
@@ -45,7 +45,7 @@ Linked List
 1. Middle Node/ Circle in Linked list
 2. Random Pointer
 
-Tree
+tree
 -----
 1. DFS (Iterative and Recursive)
     1. Inorder
@@ -59,12 +59,12 @@ Tree
 5. Print Root to leaf path
 6. Root to leaf sum 
 7. Lowest Common Ancestor
-8. Check Binary tree is Binary Search Tree
+8. Check Binary tree is Binary Search tree
 9. Construct tree from given preorder/postorder/inorder
-10. Binary Tree insertion/deletion
+10. Binary tree insertion/deletion
 11. Merge two Binary Search tree to form sorted Linked list
-12. Binary Tree to Doubly Linked list
-13. Segment Tree (Range query Tree) Prefix Sum
+12. Binary tree to Doubly Linked list
+13. Segment tree (Range query tree) Prefix Sum
 
 Graph
 -----
@@ -72,7 +72,7 @@ Graph
 2. BFS
 3. DFS
 4. Topological array.sort
-5. Minimum Spanning Tree
+5. Minimum Spanning tree
 6. Prims Algorithms
 7. Krushkal's Algorithms
 8. Shortest Path(Dijkstra Algorithms)

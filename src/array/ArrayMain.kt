@@ -18,10 +18,12 @@ class ArrayMain {
         MaxRectHistogram,
         MaxRectBinaryMatrix,
         TrapRainWater,
+        MinStackSpace,
+        MinStack,
     }
     companion object{
 
-        private val question = ArrayQuestion.TrapRainWater
+        private val question = ArrayQuestion.MinStackSpace
         private val main = ArrayMain()
 
         @JvmStatic
@@ -53,10 +55,38 @@ class ArrayMain {
                     main.maxAreaBinaryMatrix()
                 ArrayQuestion.TrapRainWater ->
                     main.trapWater()
+                ArrayQuestion.MinStackSpace ->
+                    main.minStackSpace()
+                ArrayQuestion.MinStack ->
+                    main.minStack()
             }
 
         }
     }
+
+    private fun minStack() {
+        val ms = MinStack()
+        ms.minStack(intArrayOf(18,19,29,15,10,16))
+        ms.pop()
+        println("Min ${ms.getMinV()}")
+        ms.pop()
+        println("Min ${ms.getMinV()}")
+        ms.pop()
+        ms.pop()
+        println("Min ${ms.getMinV()}")
+    }
+
+    private fun minStackSpace() {
+        val ms = MinStackSpace()
+        ms.minStack(nums = intArrayOf(18,19,29,15,10,16))
+        ms.pop()
+        println("Min ${ms.getMin()}")
+        ms.pop()
+        println("Min ${ms.getMin()}")
+        ms.pop()
+        ms.pop()
+        println("Min ${ms.getMin()}")
+   }
 
     private fun trapWater() {
         val rtw = RainTippingWater()
