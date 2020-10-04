@@ -138,6 +138,81 @@ class BinaryTree {
         if(root.`val` != Int.MAX_VALUE)
             print("${root.`val`} ")
     }
+
+    fun leftView() {
+        if(root == null) return
+        var cc = 1
+        var fc = 0
+        val queue = LinkedList<Tree>()
+        queue.add(root!!)
+        var isleft = true
+        while(queue.isNotEmpty()) {
+            val node = queue.poll()
+            if(isleft){
+                print("${node.`val`} ")
+                isleft = false
+            }
+            cc--
+            node.left?.let{
+                if(it.`val` != Int.MAX_VALUE) {
+                    queue.add(it)
+                    fc++
+                }
+            }
+            node.right?.let {
+                if(it.`val` != Int.MAX_VALUE) {
+                    queue.add(it)
+                    fc++
+                }
+            }
+            if(cc == 0) {
+                cc = fc
+                fc = 0
+                isleft = true
+            }
+        }
+        println()
+    }
+
+    fun rightView() {
+        if(root == null) return
+        var cc = 1
+        var fc = 0
+        val queue = LinkedList<Tree>()
+        queue.add(root!!)
+        while(queue.isNotEmpty()) {
+            val node = queue.poll()
+            cc--
+            node.left?.let{
+                if(it.`val` != Int.MAX_VALUE) {
+                    queue.add(it)
+                    fc++
+                }
+            }
+            node.right?.let {
+                if(it.`val` != Int.MAX_VALUE) {
+                    queue.add(it)
+                    fc++
+                }
+            }
+            if(cc == 0) {
+                cc = fc
+                fc = 0
+                print("${node.`val`} ")
+            }
+        }
+        println()
+    }
+
+    fun topView() {}
+
+    fun bottomView() {}
+
+    fun spiralView() {}
+
+    fun verticalView() {}
+
+    fun diagonalView() {}
 }
 
 
