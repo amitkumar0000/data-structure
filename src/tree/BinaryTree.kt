@@ -1,6 +1,7 @@
 package tree
 
 import java.util.LinkedList
+import java.util.Stack
 
 class BinaryTree {
     private var root: Tree? = null
@@ -251,13 +252,85 @@ class BinaryTree {
         return rlist
     }
 
-    fun topView() {}
+    fun diagonalView(): List<List<Int>> {
+        val rlist = arrayListOf<ArrayList<Int>>()
+        if(root == null) return rlist
 
-    fun bottomView() {}
+        var hd = 0
+        var vmap = HashMap<Int, ArrayList<Int>>()
+        var hdMap = HashMap<Int, Int>()
 
-    fun spiralView() {}
+        var queue = LinkedList<Tree>()
+        queue.add(root!!)
+        hdMap[root!!.`val`] = hd
+        vmap[hd] = arrayListOf(root!!.`val`)
 
-    fun diagonalView() {}
+        while(queue.isNotEmpty()){
+            val node = queue.poll()
+            hd = hdMap[node.`val`]!!
+
+            node?.left?.let {
+                hdMap[it.`val`] = hd
+                val list = vmap.getOrDefault(hd, arrayListOf())
+                list.add(it.`val`)
+                vmap[hd] = list
+                queue.add(it)
+            }
+
+            node?.right?.let {
+                hdMap[it.`val`] = hd + 1
+                val list = vmap.getOrDefault(hd+1, arrayListOf())
+                list.add(it.`val`)
+                vmap[hd+1] = list
+                queue.add(it)
+            }
+        }
+
+        vmap.keys.sorted().forEach {
+            var list = arrayListOf<Int>()
+            vmap[it]!!.forEach {
+                list.add(it)
+            }
+            rlist.add(list)
+        }
+        return rlist
+    }
+
+    fun spiralView(): List<Int> {
+        val rlist = arrayListOf<Int>()
+        if(root == null) return rlist
+
+        var stack1 = Stack<Tree>()
+        var stack2 = Stack<Tree>()
+
+        stack1.add(root!!)
+
+        while(stack1.isNotEmpty() || stack2.isNotEmpty()) {
+
+            while(stack1.isNotEmpty()){
+                val node = stack1.pop()
+                rlist.add(node.`val`)
+                node?.right?.let{
+                    stack2.add(it)
+                }
+                node?.left?.let{
+                    stack2.add(it)
+                }
+            }
+
+            while(stack2.isNotEmpty()){
+                val node = stack2.pop()
+                rlist.add(node.`val`)
+                node?.left?.let{
+                    stack1.add(it)
+                }
+                node?.right?.let{
+                    stack1.add(it)
+                }
+            }
+        }
+        return rlist
+    }
 }
 
 

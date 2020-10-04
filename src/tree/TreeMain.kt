@@ -20,7 +20,7 @@ class TreeMain {
         @JvmStatic
          fun main(args: Array<String>){
             val main = TreeMain()
-            val question = TreeQuestion.VerticalView
+            val question = TreeQuestion.SpiralView
 
             when(question) {
                 TreeQuestion.insertAll -> {
@@ -94,22 +94,41 @@ class TreeMain {
     }
 
     private fun topView() {
-
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(1,2,3,4,5,6,7))
+        println("--- Top view ----")
+        bt.verticalView().forEach {
+            if(it.isNotEmpty())
+                 print("${it[0]} ")
+        };println()
     }
 
     private fun bottomView() {
-        val bt = addAll()
-        bt.bottomView()
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(1,2,3,4,5,6,7))
+        println("--- Top view ----")
+        bt.verticalView().forEach {
+            if(it.isNotEmpty())
+                print("${it[it.size - 1]} ")
+        };println()
     }
 
     private fun spiralView() {
-        val bt = addAll()
-        bt.spiralView()
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(1,2,3,4,5,6,7,8,9,10,11))
+        println("--- Spirak view ----")
+        bt.spiralView().forEach {
+            print("$it ")
+        };println()
     }
 
     private fun diagonalView() {
-        val bt = addAll()
-        bt.diagonalView()
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(1,2,3,4,5,6,7))
+        println("--- Top view ----")
+        bt.diagonalView().forEach {
+            rows -> rows.forEach { print("$it ") };println()
+        };
     }
 
     private fun verticalView() {
