@@ -139,18 +139,19 @@ class BinaryTree {
             print("${root.`val`} ")
     }
 
-    fun leftView() {
-        if(root == null) return
+    fun leftView(): List<Int> {
+        if(root == null) return listOf()
         var cc = 1
         var fc = 0
         val queue = LinkedList<Tree>()
+        var list = arrayListOf<Int>()
         queue.add(root!!)
         var isleft = true
         while(queue.isNotEmpty()) {
             val node = queue.poll()
             if(isleft){
-                print("${node.`val`} ")
                 isleft = false
+                list.add(node.`val`)
             }
             cc--
             node.left?.let{
@@ -171,11 +172,13 @@ class BinaryTree {
                 isleft = true
             }
         }
-        println()
+        return list
     }
 
-    fun rightView() {
-        if(root == null) return
+    fun rightView(): List<Int> {
+        var list = arrayListOf<Int>()
+
+        if(root == null) return list
         var cc = 1
         var fc = 0
         val queue = LinkedList<Tree>()
@@ -198,10 +201,54 @@ class BinaryTree {
             if(cc == 0) {
                 cc = fc
                 fc = 0
-                print("${node.`val`} ")
+                list.add(node.`val`)
             }
         }
-        println()
+        return list
+    }
+
+    fun verticalView() : List<List<Int>>{
+        val rlist = arrayListOf<ArrayList<Int>>()
+        if(root == null) return rlist
+
+        var hd = 0
+        var vmap = HashMap<Int, ArrayList<Int>>()
+        var hdMap = HashMap<Int, Int>()
+
+        var queue = LinkedList<Tree>()
+        queue.add(root!!)
+        hdMap[root!!.`val`] = hd
+        vmap[hd] = arrayListOf(root!!.`val`)
+
+        while(queue.isNotEmpty()){
+            val node = queue.poll()
+            hd = hdMap[node.`val`]!!
+
+            node?.left?.let {
+                hdMap[it.`val`] = hd - 1
+                val list = vmap.getOrDefault(hd-1, arrayListOf())
+                list.add(it.`val`)
+                vmap[hd-1] = list
+                queue.add(it)
+            }
+
+            node?.right?.let {
+                hdMap[it.`val`] = hd + 1
+                val list = vmap.getOrDefault(hd+1, arrayListOf())
+                list.add(it.`val`)
+                vmap[hd+1] = list
+                queue.add(it)
+            }
+        }
+
+        vmap.keys.sorted().forEach {
+            var list = arrayListOf<Int>()
+            vmap[it]!!.forEach {
+              list.add(it)
+            }
+            rlist.add(list)
+        }
+        return rlist
     }
 
     fun topView() {}
@@ -209,8 +256,6 @@ class BinaryTree {
     fun bottomView() {}
 
     fun spiralView() {}
-
-    fun verticalView() {}
 
     fun diagonalView() {}
 }

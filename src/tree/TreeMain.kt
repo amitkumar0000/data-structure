@@ -20,7 +20,7 @@ class TreeMain {
         @JvmStatic
          fun main(args: Array<String>){
             val main = TreeMain()
-            val question = TreeQuestion.RightView
+            val question = TreeQuestion.VerticalView
 
             when(question) {
                 TreeQuestion.insertAll -> {
@@ -84,18 +84,17 @@ class TreeMain {
     private fun leftView() {
         val bt = addAll()
         print("left view:- ")
-        bt.leftView()
+        bt.leftView().forEach { print("$it ") }
     }
 
     private fun rightView() {
         val bt = addAll()
         print("right view:- ")
-        bt.rightView()
+        bt.rightView().forEach { print("$it ") }
     }
 
     private fun topView() {
-        val bt = addAll()
-        bt.topView()
+
     }
 
     private fun bottomView() {
@@ -114,8 +113,12 @@ class TreeMain {
     }
 
     private fun verticalView() {
-        val bt = addAll()
-        bt.verticalView()
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(1,2,3,4,5,6,7))
+        println("--- Vertical view ----")
+        bt.verticalView().forEach {
+            rows -> rows.forEach { print("$it ") };println()
+        }
     }
 
 }
