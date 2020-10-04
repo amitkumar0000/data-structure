@@ -3,6 +3,17 @@ package tree
 import java.util.LinkedList
 import java.util.Stack
 
+/****
+ * Inorder/PreOrder/PostOrder
+ * Level order
+ * Left View
+ * Right View
+ * Vertical View
+ * Top View
+ * Bottom View
+ * Diagonal View
+ * Spiral/zig-zag view
+ */
 class BinaryTree {
     private var root: Tree? = null
 
@@ -331,6 +342,8 @@ class BinaryTree {
         }
         return rlist
     }
+
+
 }
 
 
