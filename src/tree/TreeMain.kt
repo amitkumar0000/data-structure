@@ -24,9 +24,8 @@ class TreeMain {
         @JvmStatic
          fun main(args: Array<String>){
             val main = TreeMain()
-            val question = TreeQuestion.InorderSuccessor
 
-            when(question) {
+            when(TreeQuestion.InorderSuccessor) {
                 TreeQuestion.insertAll -> {
                     main.addAll()
                 }
@@ -88,16 +87,20 @@ class TreeMain {
         val bst = BinarySearchTree()
         bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
         bst.inOrder(root = bst.root)
-        println("\nInorder Successor :- ${bst.inOrderSuccessor(bst.root, 10)}")
-        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 4)}")
-        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 18)}")
-        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 11)}")
+        println("\nInorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 10, null)}")
+        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 4, null)}")
+        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 18, null)}")
+        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 11,null)}")
     }
 
     private fun inorderPredecessor() {
         val bst = BinarySearchTree()
-        bst.addAll(listOf(11, 15,12,18,7,9,10,6,8))
-        bst.inOrder(bst.root)
+        bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
+        bst.inOrder(root = bst.root)
+        println("\nInorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 10)}")
+        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 4)}")
+        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 18)}")
+        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 11)}")
     }
 
     private fun bstAdd() {
@@ -185,5 +188,5 @@ class TreeMain {
             print("$it ")
         };println()
     }
-    
+
 }
