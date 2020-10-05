@@ -24,7 +24,7 @@ class TreeMain {
         @JvmStatic
          fun main(args: Array<String>){
             val main = TreeMain()
-            val question = TreeQuestion.PrintRootToLeaf
+            val question = TreeQuestion.InorderSuccessor
 
             when(question) {
                 TreeQuestion.insertAll -> {
@@ -86,8 +86,12 @@ class TreeMain {
 
     private fun inorderSuccessor() {
         val bst = BinarySearchTree()
-        bst.addAll(listOf(11, 15,12,18,7,9,10,6,8,5,4))
-        bst.inOrder(bst.root)
+        bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
+        bst.inOrder(root = bst.root)
+        println("\nInorder Successor :- ${bst.inOrderSuccessor(bst.root, 10)}")
+        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 4)}")
+        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 18)}")
+        println("Inorder Successor :- ${bst.inOrderSuccessor(bst.root, 11)}")
     }
 
     private fun inorderPredecessor() {
@@ -181,4 +185,5 @@ class TreeMain {
             print("$it ")
         };println()
     }
+    
 }
