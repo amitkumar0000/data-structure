@@ -82,39 +82,43 @@ class TreeMain {
     private fun lca() {
         val bst = BinarySearchTree()
         bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
-
-        println("LCA(9,7)   ${bst.lca(bst.root, 9, 7)}")
-        println("LCA(6,7)   ${bst.lca(bst.root, 6, 7)}")
-        println("LCA(6,9)   ${bst.lca(bst.root, 6, 9)}")
-        println("LCA(4,18)   ${bst.lca(bst.root, 4, 18)}")
+        val lca = LCA()
+        println("LCA(9,7)   ${lca.lca(bst.root, 9, 7)}")
+        println("LCA(6,7)   ${lca.lca(bst.root, 6, 7)}")
+        println("LCA(6,9)   ${lca.lca(bst.root, 6, 9)}")
+        println("LCA(4,18)   ${lca.lca(bst.root, 4, 18)}")
     }
 
     private fun printRootToLeaf() {
         val bst = BinarySearchTree()
         bst.addAll(listOf(100,80,70,90,85,95,94,84,86,88,96,110,105,112,115))
         println("Printing All root to leaf node path:- ")
+        val rootToLeaf = RootToLeaf()
         if(bst.root != null)
-            bst.rootToLeaf(bst.root, arrayListOf(bst.root!!.`val`))
+            rootToLeaf.rootToLeaf(bst.root, arrayListOf(bst.root!!.`val`))
     }
 
     private fun inorderSuccessor() {
         val bst = BinarySearchTree()
         bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
         bst.inOrder(root = bst.root)
-        println("\nInorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 10, null)}")
-        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 4, null)}")
-        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 18, null)}")
-        println("Inorder Successor :- ${bst.inorderSuccessorRecursion(bst.root, 11,null)}")
+
+        val inds = InOrderSuccessor()
+        println("\nInorder Successor :- ${inds.inorderSuccessorRecursion(bst.root, 10, null)}")
+        println("Inorder Successor :- ${inds.inorderSuccessorRecursion(bst.root, 4, null)}")
+        println("Inorder Successor :- ${inds.inorderSuccessorRecursion(bst.root, 18, null)}")
+        println("Inorder Successor :- ${inds.inorderSuccessorRecursion(bst.root, 11,null)}")
     }
 
     private fun inorderPredecessor() {
         val bst = BinarySearchTree()
         bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
         bst.inOrder(root = bst.root)
-        println("\nInorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 10)}")
-        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 4)}")
-        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 18)}")
-        println("Inorder Predecessor :- ${bst.inOrderPredecessor(bst.root, 11)}")
+        val indp = InorderPrdeccessor()
+        println("\nInorder Predecessor :- ${indp.inOrderPredecessor(bst.root, 10)}")
+        println("Inorder Predecessor :- ${indp.inOrderPredecessor(bst.root, 4)}")
+        println("Inorder Predecessor :- ${indp.inOrderPredecessor(bst.root, 18)}")
+        println("Inorder Predecessor :- ${indp.inOrderPredecessor(bst.root, 11)}")
     }
 
     private fun bstAdd() {
