@@ -26,7 +26,7 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.LCA) {
+            when(TreeQuestion.LeftView) {
                 TreeQuestion.insertAll -> {
                     main.addAll()
                 }
@@ -34,10 +34,10 @@ class TreeMain {
                     main.BFSwithNewLine()
                 }
                 TreeQuestion.BFS -> {
-                    main.BFS()
+                    main.bfs()
                 }
                 TreeQuestion.DFS -> {
-                    main.DFS()
+                    main.dfs()
                 }
                 TreeQuestion.LeftView -> {
                     main.leftView()
@@ -129,38 +129,47 @@ class TreeMain {
         return bt
     }
 
-    private fun BFS() {
+    private fun bfs() {
         val bt = addAll()
-        bt.BFS()
+        val bfs = BFS()
+        bfs.BFS(bt.root)
     }
 
     private fun BFSwithNewLine() {
         val bt = addAll()
-        bt.printLevelOrderLineByLine()
+        val bfs = BFS()
+        bfs.printLevelOrderLineByLine(bt.root)
     }
 
-    private fun DFS() {
+    private fun dfs() {
         val bt = addAll()
-        bt.DFS()
+        val bfs = DFS()
+
+        bfs.DFS(bt.root)
     }
 
     private fun leftView() {
         val bt = addAll()
         print("left view:- ")
-        bt.leftView().forEach { print("$it ") }
+
+        val lv = LeftView()
+        lv.leftView(bt.root).forEach { print("$it ") }
     }
 
     private fun rightView() {
         val bt = addAll()
         print("right view:- ")
-        bt.rightView().forEach { print("$it ") }
+
+        val rv = RightView()
+        rv.rightView(bt.root).forEach { print("$it ") }
     }
 
     private fun verticalView() {
         val bt = BinaryTree()
         bt.addAll(arrayOf(1,2,3,4,5,6,7))
         println("--- Vertical view ----")
-        bt.verticalView().forEach {
+        val vv = VerticalView()
+        vv.verticalView(bt.root).forEach {
             rows -> rows.forEach { print("$it ") };println()
         }
     }
@@ -169,7 +178,9 @@ class TreeMain {
         val bt = BinaryTree()
         bt.addAll(arrayOf(1,2,3,4,5,6,7))
         println("--- Top view ----")
-        bt.verticalView().forEach {
+        val vv = VerticalView()
+
+        vv.verticalView(bt.root).forEach {
             if(it.isNotEmpty())
                  print("${it[0]} ")
         };println()
@@ -179,7 +190,9 @@ class TreeMain {
         val bt = BinaryTree()
         bt.addAll(arrayOf(1,2,3,4,5,6,7))
         println("--- Top view ----")
-        bt.verticalView().forEach {
+        val vv = VerticalView()
+
+        vv.verticalView(bt.root).forEach {
             if(it.isNotEmpty())
                 print("${it[it.size - 1]} ")
         };println()
@@ -189,7 +202,9 @@ class TreeMain {
         val bt = BinaryTree()
         bt.addAll(arrayOf(1,2,3,4,5,6,7))
         println("--- Top view ----")
-        bt.diagonalView().forEach {
+        val vv = DiagonalView()
+
+        vv.diagonalView(bt.root).forEach {
             rows -> rows.forEach { print("$it ") };println()
         };
     }
@@ -198,7 +213,9 @@ class TreeMain {
         val bt = BinaryTree()
         bt.addAll(arrayOf(1,2,3,4,5,6,7,8,9,10,11))
         println("--- Spirak view ----")
-        bt.spiralView().forEach {
+        val vv = SpiralView()
+
+        vv.spiralView(bt.root).forEach {
             print("$it ")
         };println()
     }
