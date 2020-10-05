@@ -18,6 +18,7 @@ class TreeMain {
         InorderSuccessor,
         InorderPredecessor,
         PrintRootToLeaf,
+        LCA,
     }
 
     companion object{
@@ -25,7 +26,7 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.InorderSuccessor) {
+            when(TreeQuestion.LCA) {
                 TreeQuestion.insertAll -> {
                     main.addAll()
                 }
@@ -71,8 +72,21 @@ class TreeMain {
                 TreeQuestion.PrintRootToLeaf -> {
                     main.printRootToLeaf()
                 }
+                TreeQuestion.LCA -> {
+                    main.lca()
+                }
             }
         }
+    }
+
+    private fun lca() {
+        val bst = BinarySearchTree()
+        bst.addAll(listOf(11,15,12,18,7,9,10,6,8,5,4))
+
+        println("LCA(9,7)   ${bst.lca(bst.root, 9, 7)}")
+        println("LCA(6,7)   ${bst.lca(bst.root, 6, 7)}")
+        println("LCA(6,9)   ${bst.lca(bst.root, 6, 9)}")
+        println("LCA(4,18)   ${bst.lca(bst.root, 4, 18)}")
     }
 
     private fun printRootToLeaf() {
