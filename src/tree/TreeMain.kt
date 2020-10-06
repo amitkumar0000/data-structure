@@ -104,7 +104,7 @@ class TreeMain {
         bst.addAll(listOf(90,100,80,70,60,75,79,85,83,84,86,95,110,105,115,108,109))
 
         val diameter = Diameter()
-        println("Diameter of tree : ${diameter.diameter(bst.root)}")
+        println("Diameter of tree : ${diameter.diameter(bst.root, hashMapOf(), hashMapOf())}")
     }
 
     private fun rootToSumPath() {
