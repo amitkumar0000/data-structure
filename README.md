@@ -58,7 +58,7 @@ tree
 4. Print Left/Right/Top/Bottom/Vertical/Horizontal/zig-zag/Diagonal view of tree
 5. Print Root to leaf path
 6. Root to leaf sum 
-7. Lowest Common Ancestor
+7. lowest Common Ancestor
 8. Check Binary tree is Binary Search tree
 9. Construct tree from given preorder/postorder/inorder
 10. Binary tree insertion/deletion
@@ -67,6 +67,9 @@ tree
 13. Segment tree (Range query tree) Prefix Sum
 14. Diameter of a Binary tree
 15. Height/Depth of tree
+16. AVL tree (Self-Balancing tree)
+17. Red Black Tree
+18. B tree and B+ tree
 
 Graph
 -----

@@ -22,6 +22,8 @@ class TreeMain {
         LCA,
         RootToSumPath,
         Diameter,
+        ConstructInorderPreorder,
+        ConstructInorderPostorder,
     }
 
     companion object{
@@ -29,7 +31,7 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.Diameter) {
+            when(TreeQuestion.ConstructInorderPreorder) {
                 TreeQuestion.InsertAll -> {
                     main.addAll()
                 }
@@ -87,8 +89,23 @@ class TreeMain {
                 TreeQuestion.Diameter -> {
                     main.diameter()
                 }
+                TreeQuestion.ConstructInorderPreorder -> {
+                    main.constructInorderPreorder()
+                }
             }
         }
+    }
+
+    private fun constructInorderPreorder() {
+        val bst = BinarySearchTree()
+        bst.addAll(listOf(80,70,95,60,75,90,100,50,65,94,97))
+        bst.inOrder(bst.root);println()
+
+        val construct = ConstructTree()
+        val root = construct.constructInorderPreorder(intArrayOf(50,60,65,70,75,80,90,94,95,97,100), intArrayOf(80,70,60,50,65,75,95,90,94,100,97))
+
+        bst.inOrder(root)
+
     }
 
     private fun height() {
@@ -103,7 +120,7 @@ class TreeMain {
         val bst = BinarySearchTree()
         bst.addAll(listOf(90,100,80,70,60,75,79,85,83,84,86,95,110,105,115,108,109))
 
-        val diameter = Diameter()
+        val diameter = DiameterDP()
         println("Diameter of tree : ${diameter.diameter(bst.root, hashMapOf(), hashMapOf())}")
     }
 
