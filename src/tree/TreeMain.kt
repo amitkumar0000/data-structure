@@ -3,9 +3,9 @@ package tree
 class TreeMain {
 
     enum class TreeQuestion {
-        insertAll,
-        levelOrder,
-        height,
+        InsertAll,
+        LevelOrder,
+        Height,
         BFS,
         DFS,
         LeftView,
@@ -21,6 +21,7 @@ class TreeMain {
         PrintRootToLeaf,
         LCA,
         RootToSumPath,
+        Diameter,
     }
 
     companion object{
@@ -28,14 +29,14 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.height) {
-                TreeQuestion.insertAll -> {
+            when(TreeQuestion.Diameter) {
+                TreeQuestion.InsertAll -> {
                     main.addAll()
                 }
-                TreeQuestion.height -> {
+                TreeQuestion.Height -> {
                     main.height()
                 }
-                TreeQuestion.levelOrder -> {
+                TreeQuestion.LevelOrder -> {
                     main.BFSwithNewLine()
                 }
                 TreeQuestion.BFS -> {
@@ -83,6 +84,9 @@ class TreeMain {
                 TreeQuestion.RootToSumPath -> {
                     main.rootToSumPath()
                 }
+                TreeQuestion.Diameter -> {
+                    main.diameter()
+                }
             }
         }
     }
@@ -93,6 +97,14 @@ class TreeMain {
 
         val height = Height()
         println("Height of tree: ${height.height(bst.root)}")
+    }
+
+    private fun diameter() {
+        val bst = BinarySearchTree()
+        bst.addAll(listOf(90,100,80,70,60,75,79,85,83,84,86,95,110,105,115,108,109))
+
+        val diameter = Diameter()
+        println("Diameter of tree : ${diameter.diameter(bst.root)}")
     }
 
     private fun rootToSumPath() {
