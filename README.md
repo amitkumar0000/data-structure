@@ -65,6 +65,8 @@ tree
 11. Merge two Binary Search tree to form sorted Linked list
 12. Binary tree to Doubly Linked list
 13. Segment tree (Range query tree) Prefix Sum
+14. Diameter of a Binary tree
+15. Height/Depth of tree
 
 Graph
 -----

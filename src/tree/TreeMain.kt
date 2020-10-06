@@ -5,6 +5,7 @@ class TreeMain {
     enum class TreeQuestion {
         insertAll,
         levelOrder,
+        height,
         BFS,
         DFS,
         LeftView,
@@ -19,6 +20,7 @@ class TreeMain {
         InorderPredecessor,
         PrintRootToLeaf,
         LCA,
+        RootToSumPath,
     }
 
     companion object{
@@ -26,9 +28,12 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.LeftView) {
+            when(TreeQuestion.height) {
                 TreeQuestion.insertAll -> {
                     main.addAll()
+                }
+                TreeQuestion.height -> {
+                    main.height()
                 }
                 TreeQuestion.levelOrder -> {
                     main.BFSwithNewLine()
@@ -75,8 +80,27 @@ class TreeMain {
                 TreeQuestion.LCA -> {
                     main.lca()
                 }
+                TreeQuestion.RootToSumPath -> {
+                    main.rootToSumPath()
+                }
             }
         }
+    }
+
+    private fun height() {
+        val bst = BinarySearchTree()
+        bst.addAll(listOf(80,70,75,60,50,65,66,95,90,100,94,97))
+
+        val height = Height()
+        println("Height of tree: ${height.height(bst.root)}")
+    }
+
+    private fun rootToSumPath() {
+        val bst = BinarySearchTree()
+        bst.addAll(listOf(10,12,5,7,4,3))
+        val rps = RootToPathSum()
+        if(bst.root != null)
+            rps.printRootToPathSum(bst.root,  22 - bst.root!!.`val`, arrayListOf(bst.root!!.`val`))
     }
 
     private fun lca() {
