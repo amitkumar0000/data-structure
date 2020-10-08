@@ -31,7 +31,7 @@ class TreeMain {
          fun main(args: Array<String>){
             val main = TreeMain()
 
-            when(TreeQuestion.ConstructInorderPostorder) {
+            when(TreeQuestion.ConstructInorderPreorder) {
                 TreeQuestion.InsertAll -> {
                     main.addAll()
                 }
@@ -113,14 +113,18 @@ class TreeMain {
     }
 
     private fun constructInorderPreorder() {
-        val bst = BinarySearchTree()
-        bst.addAll(listOf(80,70,95,60,75,90,100,50,65,94,97))
-        bst.inOrder(bst.root);println()
+        val bt = BinaryTree()
+        bt.addAll(arrayOf(3,9,20,null,null,15,17))
+
+
+        val dfs = DFS()
+        dfs.inOrder(bt.root)
 
         val construct = ConstructTree()
-        val root = construct.constructInorderPreorder(intArrayOf(50,60,65,70,75,80,90,94,95,97,100), intArrayOf(80,70,60,50,65,75,95,90,94,100,97))
+        val root = construct.buildTree(preorder = intArrayOf(3,9,20,15,7), inorder = intArrayOf(9,3,15,20,17))
 
-        bst.inOrder(root)
+        println()
+        dfs.inOrder(root)
 
     }
 

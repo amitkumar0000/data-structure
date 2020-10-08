@@ -10,7 +10,7 @@ class DFS {
         postOrder(root)
     }
 
-    private fun inOrder(root: Tree?) {
+    internal fun inOrder(root: Tree?) {
         if(root == null)
             return
         inOrder(root.left)
@@ -20,7 +20,7 @@ class DFS {
 
     }
 
-    private fun preOrder(root: Tree?) {
+    internal fun preOrder(root: Tree?) {
         if(root == null)
             return
         if(root.`val` != Int.MAX_VALUE)
@@ -30,7 +30,7 @@ class DFS {
 
     }
 
-    private fun postOrder(root: Tree?) {
+    internal fun postOrder(root: Tree?) {
         if(root == null)
             return
         postOrder(root.left)
