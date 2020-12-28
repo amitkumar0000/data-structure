@@ -324,3 +324,13 @@ fun IntArray.reArrangeNegativePositiveO1Space(): IntArray {
 
     return nums
 }
+
+fun Long.fact(): Long {
+    return factorial(this)
+}
+
+private fun factorial(num: Long): Long{
+    if(num == 1L)
+        return 1
+    return num * factorial(num - 1)
+}

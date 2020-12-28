@@ -23,9 +23,11 @@ class DS450Main {
         RearrangeNegPos,
         RearrangeNeg,
         RearrangeNegPosO1Space,
+        SubArraySumZero,
+        Factorial,
     }
 
-    val problem = DS450.RearrangeNegPos
+    val problem = DS450.Factorial
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
@@ -83,8 +85,24 @@ class DS450Main {
                 DS450.RearrangeNegPosO1Space -> {
                     mainObj.rearrangeNegPosO1Space()
                 }
+                DS450.SubArraySumZero -> {
+                    mainObj.subArraySumZero()
+                }
+                DS450.Factorial -> {
+                    mainObj.fact()
+                }
             }
         }
+    }
+
+    fun fact() {
+        val num = 100L
+        println("Factorial ${num.fact()}")
+    }
+
+    fun subArraySumZero() {
+        val obj = ArraysExt()
+        println("SubArray sum : ${obj.findSum(intArrayOf(-29, 17, -46, -37, 11, 4), 6)}")
     }
 
     fun rearrangeNegPosO1Space() {

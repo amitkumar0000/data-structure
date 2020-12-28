@@ -2,6 +2,7 @@ package ds450.arrays;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ArraysExt {
 
@@ -57,5 +58,29 @@ public class ArraysExt {
         }
 
         return res;
+    }
+
+    public boolean findSum(int arr[], int n) {
+        if(n == 0)
+            return true;
+
+        HashSet<Integer> set = new HashSet();
+
+        int curSum = arr[0];
+        if(curSum == 0)
+            return true;
+        set.add(curSum);
+
+        for(int i=1; i< n; i++) {
+            if(arr[i] == 0)
+                return true;
+
+            curSum += arr[i];
+            if(curSum == 0 || set.contains(curSum))
+                return true;
+            set.add(curSum);
+        }
+
+        return false;
     }
 }
