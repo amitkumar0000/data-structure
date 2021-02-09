@@ -1,0 +1,126 @@
+
+   // Selection sort guarntee minimum number of swap
+	fun selectionSort(nums: IntArray): IntArray {
+		for(i in 0 unitl nums.size - 1) {
+			var min = i
+			for(j in i+1..nums.indices) {
+				if(nums[min] > nums[j]) {
+					min = j
+				}
+			}
+			if(min != i) {
+				var tmp = nums[min]
+				nums[min] = nums[i]
+				nums[i] = tmp
+			}
+		}
+		
+		return nums
+	}
+
+   // In sorted array bubble sort give better result than quick sort 
+	fun bubbleSort(nums: IntArray): IntArray {
+		for(i in 0 until nums.size) {
+		 for(j in 0 until nums.size - i -1) {
+		 	 if(nums[j] > nums[j+1]) {
+		 	 	val tmp = nums[j]
+		 	 	nums[j] = nums[j+1]
+		 	 	nums[j+1] = tmp
+		 	 }
+		 }
+		}
+
+		return nums
+	}
+
+	fun insertionSort(nums: IntArray): IntArray {
+		for(i in 1 until nums.size) {
+			var tmp = nums[i]
+			for(j in i-1..0) {
+				if(nums[j] > tmp) {
+					nums[j+1] = nums[j]
+				} else {
+					break
+				}
+			}
+			if(j != i) {
+				nums[j] = tmp
+			}
+		}
+	}
+
+	fun mergeSort(nums: IntArray): IntArray {
+		return mergeSort(nums, 0, nums.size)
+	}
+
+	private fun mergeSort(nums: IntArray, left: Int, right: Int) {
+		if(left >= right) {
+			return 
+		}
+
+		var mid = left + (right - left) / 2
+
+		mergeSort(nums, left, mid)
+		mergeSort(nums, mid+1, right)
+		merge(nums, left, mid, right)
+	}
+
+	private fun merge(nums: IntArray, left: Int, mid: Int, right: Int) {
+		var i = left
+		var j = mid + 1
+		var k = 0
+		var out = arrayList<Int>()
+		while(i < mid && j < right) {
+			if(nums[i] > nums[j]) {
+				out[k++] = nums[j++]
+			} else {
+				out[k++] = nums[i++]
+			}
+		}
+
+		while(i < mid) {
+			out[k++] = nums[i]
+		}
+
+		while(j < right)
+			out[k++] = nums[j++]
+
+		k = 0
+		for(i in left until right) {
+			nums[i] = out[k++]
+		}
+	}
+
+	fun quickSort(nums: IntArray): IntArray {
+		return quickSort(nums,0, nums.size )
+	}
+
+	private fun quickSort(nums: IntArray, start: Int, end: Int): IntArray {
+		if(start >= end)
+			return
+		var pi  = pivotPosition(nums, start, end) // push all small number than pivot at one side
+
+		quickSort(nums, start, pi - 1)
+		quickSort(nums, pi + 1, end)
+	}
+
+	// Push the all smallest number at one side of pivot element
+	private fun pivotPosition(nums: IntArray, start: Int, end: Int): Int {
+		val pivot = nums[end-1]
+		var j = start - 1
+
+		for(i in start until end) {
+			if(nums[i] <= pivot) {
+				val tmp = nums[i]
+				nums[i] = nums[++j]
+				nums[j] = tmp
+			}	
+		}
+		var pi = j+1
+		var tmp = nums[pi]
+		nums[pi] = nums[end]
+		nums[end] = pi
+
+		return pi
+	}
+
